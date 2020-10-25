@@ -1,0 +1,43 @@
+package linked_list;
+
+import java.util.ArrayList;
+
+import queue.invalidIndexException;
+
+public class algorithmTest {
+
+    public static linkedListNode getLastKNode(linkedListNode head,Integer index) throws invalidIndexException{
+        linkedListNode fastPointer=head;
+        linkedListNode slowPointer=head;
+        for(Integer i=0;i<index;i++){
+            if(fastPointer==null){
+                throw new invalidIndexException(String.format("Index %d is not reachable!", index)); // index cannot be reached since the list is not long enogh.
+            }
+            fastPointer=fastPointer.getNext();
+        }
+        while(fastPointer!=null){
+            fastPointer=fastPointer.getNext();
+            slowPointer=slowPointer.getNext();
+        }
+        return slowPointer;
+    } //leetcode 金典面试题02.02
+    
+    public static void reverseList(){
+        ;// leetcode 206
+    }
+    public static void printListInReverseOrder(){
+        ; //LeetCode 剑指06
+    }
+    public static void main(String[] args) {
+        ArrayList<Integer> testAL=new ArrayList<Integer>();
+        testAL.add(1);
+        testAL.add(10);
+        Integer testAi[]=new Integer[testAL.size()];
+        testAi=testAL.toArray(testAi);
+        for(int i=0;i<testAi.length;i++){
+            System.out.println(testAi[i]);
+        }
+
+
+    }
+}
