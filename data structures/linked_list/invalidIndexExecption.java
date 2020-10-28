@@ -1,7 +1,12 @@
 package linked_list;
 
 public class invalidIndexExecption extends Exception{
-    public invalidIndexExecption(){
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
+    public invalidIndexExecption() {
         super();
     }
     public invalidIndexExecption(String message){

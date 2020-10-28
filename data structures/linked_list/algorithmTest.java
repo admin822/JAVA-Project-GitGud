@@ -1,6 +1,5 @@
 package linked_list;
 
-import java.util.ArrayList;
 
 import queue.invalidIndexException;
 
@@ -28,16 +27,5 @@ public class algorithmTest {
     public static void printListInReverseOrder(){
         ; //LeetCode 剑指06
     }
-    public static void main(String[] args) {
-        ArrayList<Integer> testAL=new ArrayList<Integer>();
-        testAL.add(1);
-        testAL.add(10);
-        Integer testAi[]=new Integer[testAL.size()];
-        testAi=testAL.toArray(testAi);
-        for(int i=0;i<testAi.length;i++){
-            System.out.println(testAi[i]);
-        }
-
-
-    }
+    
 }
