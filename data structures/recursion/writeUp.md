@@ -2,3 +2,4 @@
 2. local variable is independ for each call,they will not have an effect for another.
 3. however, reference will be shared through the whole recursion process(Like an array.)
 4. for the backTracking algorithm under this directory, we can change our strategy to find different path to the destination(currently the strategy is DOWN-RIGHT-UP-LEFT).
+5. After some practice, I realize the core of backtracking is to set the current stage FIXED then pass the problem ot the next stage using recursion, take N Queens as an example, we set the first queen's position then pass on to the 2nd one, then 3rd ..., with every recursion step, we are cutting down the size of our problem.
