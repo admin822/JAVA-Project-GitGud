@@ -1,0 +1,1 @@
+1. Binary search can only be applied to sorted array(which brings an intriguing question: what if we need to find index for an element in an **unsorted** array.)
