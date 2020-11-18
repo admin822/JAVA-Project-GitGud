@@ -1,5 +1,7 @@
 package linked_list;
 
+import java.util.ArrayList;
+
 public class linkedList {
     private linkedListNode head;
     private linkedListNode tail;
@@ -28,7 +30,7 @@ public class linkedList {
                 break;
             }
             if(tempStart.getNext().getValue()==value){
-                tempStart.setNext(tempStart.getNext().getNext());; // find the node we need to delete
+                tempStart.setNext(tempStart.getNext().getNext()); // find the node we need to delete
                 return;
             }
             else{
@@ -74,6 +76,25 @@ public class linkedList {
         }
         throw new nodeDoesNotExistException(String.format("There is no node with value %d exist!", value)); // didn't find a node with the specified value, thorw exception.
     }
+
+    public ArrayList<linkedListNode> findNode(Integer value){
+        linkedListNode tempstart=this.head;
+        ArrayList<linkedListNode> result=new ArrayList<linkedListNode>();
+        while(true){
+            if(tempstart.getNext()==null){
+                break;
+            }
+            if(tempstart.getNext().getValue()==value){
+                result.add(tempstart.getNext());
+                tempstart=tempstart.getNext();
+            }
+            else{
+                tempstart=tempstart.getNext();
+            }
+        }
+        return result;
+    }
+
     public void iterativelyPrintAllNodes(){
         linkedListNode iterateStartPoint =this.head;
         while(iterateStartPoint.getNext()!=null){
