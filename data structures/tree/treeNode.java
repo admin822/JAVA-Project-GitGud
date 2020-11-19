@@ -1,8 +1,11 @@
 package tree;
 
+import java.util.ArrayList;
 import java.util.Stack;
 import java.util.concurrent.Callable;
 import java.util.function.Consumer;
+
+import tree.binary_tree.nodeOperation;
 
 
 public class treeNode {
@@ -24,6 +27,9 @@ public class treeNode {
     public void print(){
         System.out.printf("Node: %d, Name: %s\n", this.nodeId,this.nodeName);
     }
+    public String getDescription(){
+        return String.format("Node: %d, Name: %s\n", this.nodeId,this.nodeName);
+    }
     public boolean isLeftEmpty(){
         if(this.left==null){
             return true;
@@ -35,12 +41,17 @@ public class treeNode {
     public void printCurrentNode(treeNode currentNode){
         currentNode.print();
     }
-    public void iterativePreorderIterate(Consumer<treeNode> action){
+    public ArrayList<String> iterativePreorderIterate(nodeOperation nodeOp){
         Stack<treeNode> tempSave=new Stack<>();
+        ArrayList<String> opResults= new ArrayList<>();
         treeNode tempNode=this;
+        String tempResult;
         while(tempNode!=null || !tempSave.isEmpty()){
             if(tempNode!=null){
-                action.accept(tempNode);
+                tempResult=nodeOp.operateNode(tempNode);
+                if(tempResult!=null){
+                    opResults.add(tempResult);
+                }
                 tempSave.push(tempNode);
                 tempNode=tempNode.left;
             }
@@ -48,12 +59,14 @@ public class treeNode {
                 tempNode=tempSave.pop().right;
             }
         }
+        return opResults;
     }
     
 
-    public void iterativeIndixIterate() {
+    public void iterativeIndixIterate(nodeOperation nodeOp) {
         Stack<treeNode> tempSave=new Stack<>();
         treeNode tempNode=this;
+        String opResult;
         while(tempNode!=null || !tempSave.isEmpty()){
             if(tempNode!=null){
                 tempSave.push(tempNode);
@@ -61,7 +74,8 @@ public class treeNode {
             }
             else{
                 tempNode=tempSave.pop();
-                tempNode.print();
+                opResult=nodeOp.operateNode(tempNode);
+                System.out.println(opResult);
                 tempNode=tempNode.right;
             }
         }

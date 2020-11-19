@@ -4,14 +4,14 @@ import tree.treeNode;
 
 public class test {
     public static void main(String[] args) {
-        bTree testTree=new bTree(1);
+        bTree testTree=new bTree(1,"clark");
         treeNode testRoot=testTree.getRoot();
-        testRoot.left=new treeNode(2);
-        testRoot.right=new treeNode(3);
-        testRoot.left.left=new treeNode(4);
-        testRoot.right.right=new treeNode(5);
-        testRoot.left.left.right=new treeNode(6);
-        testRoot.right.right.left=new treeNode(7);
+        testRoot.left=new treeNode(2,"diana");
+        testRoot.right=new treeNode(3,"bruce");
+        testRoot.left.left=new treeNode(4,"barry");
+        testRoot.right.right=new treeNode(5,"haul");
+        testRoot.left.left.right=new treeNode(6,"victor");
+        testRoot.right.right.left=new treeNode(7,"arthor");
         testTree.preorderIterate();
         System.out.println("$$$$$$$$$$$$$$$$$$$$");
         testTree.iterativePreorderIterate();
@@ -19,7 +19,10 @@ public class test {
         System.out.println();
         testTree.infixIterate();
         System.out.println("$$$$$$$$$$$$$$$$$$$$");
-        testTree.iterativeIndixIterate();
+        nodeOperation nodeOp=tempNode-> {
+            return tempNode.nodeName;
+        };
+        testTree.iterativeIndixIterate(nodeOp);
         System.out.println("#############################");
         System.out.println();
         testTree.postorderIterate();

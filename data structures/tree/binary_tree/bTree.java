@@ -1,5 +1,8 @@
 package tree.binary_tree;
 
+import java.util.ArrayList;
+import java.util.spi.TimeZoneNameProvider;
+
 import tree.treeNode;
 
 public class bTree {
@@ -23,17 +26,32 @@ public class bTree {
         this.root.postorderIterate();
     }
     public void iterativePreorderIterate(){
-        this.root.iterativePreorderIterate(tempNode-> tempNode.print());
+        nodeOperation nodeOp=tempNode ->{
+            return tempNode.getDescription();
+        };
+        ArrayList<String> results;
+        results=this.root.iterativePreorderIterate(nodeOp);
+        for(String result: results){
+            System.out.println(result);
+        }
     }
     public void preorderSearch(Integer target){
-        this.root.iterativePreorderIterate(tempNode->{
+        nodeOperation nodeOp=tempNode->{
             if(tempNode.nodeId==target){
-                tempNode.print();
+                return tempNode.getDescription();
             }
-        });
+            else{
+                return null;
+            }
+        };
+        ArrayList<String> results;
+        results=this.root.iterativePreorderIterate(nodeOp);
+        for(String result: results){
+            System.out.println(result);
+        }
     }
-    public void iterativeIndixIterate(){
-        this.root.iterativeIndixIterate();
+    public void iterativeIndixIterate(nodeOperation nodeOp){
+        this.root.iterativeIndixIterate(nodeOp);
     }
     public void iterativePostorderIterate(){
         this.root.iterativePostorderIterate();
