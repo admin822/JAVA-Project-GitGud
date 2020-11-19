@@ -13,6 +13,13 @@ public class bTree {
     public bTree(Integer id){
         root=new treeNode(id);
     }
+    public void delete(Integer target) throws illegalTargetException{
+        try{
+            this.root.deleteNode(target);
+        }catch(illegalTargetException e){
+            throw e;
+        }
+    }
     public treeNode getRoot(){
         return root;
     }
@@ -46,6 +53,10 @@ public class bTree {
         };
         ArrayList<String> results;
         results=this.root.iterativePreorderIterate(nodeOp);
+        if(results.isEmpty()){
+            System.out.println("No node found!");
+            return;
+        }
         for(String result: results){
             System.out.println(result);
         }

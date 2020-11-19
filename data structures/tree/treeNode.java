@@ -1,10 +1,13 @@
 package tree;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 import java.util.concurrent.Callable;
 import java.util.function.Consumer;
 
+import tree.binary_tree.illegalTargetException;
 import tree.binary_tree.nodeOperation;
 
 
@@ -41,6 +44,37 @@ public class treeNode {
     public void printCurrentNode(treeNode currentNode){
         currentNode.print();
     }
+
+    public void deleteNode(Integer target) throws illegalTargetException{
+        if(this.nodeId==target){
+            throw new illegalTargetException();
+        }
+        Queue<treeNode> tempSave=new LinkedList<>();
+        treeNode tempNode;
+        tempSave.offer(this);
+        while(!tempSave.isEmpty()){
+            tempNode=tempSave.poll();
+            /* judge if this node need to be deleted*/
+            if(!tempNode.isLeftEmpty()){
+                if(tempNode.left.nodeId==target){
+                    tempNode.left=null;
+                }
+                else{
+                    tempSave.offer(tempNode.left);
+                }
+            }
+            if(!tempNode.isRightEmpty()){
+                if(tempNode.right.nodeId==target){
+                    tempNode.right=null;
+                }
+                else{
+                    tempSave.offer(tempNode.right);
+                }
+            }
+        }
+    }
+
+
     public ArrayList<String> iterativePreorderIterate(nodeOperation nodeOp){
         Stack<treeNode> tempSave=new Stack<>();
         ArrayList<String> opResults= new ArrayList<>();

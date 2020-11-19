@@ -8,7 +8,7 @@ public class test {
         treeNode testRoot=testTree.getRoot();
         testRoot.left=new treeNode(2,"diana");
         testRoot.right=new treeNode(3,"bruce");
-        testRoot.left.left=new treeNode(4,"barry");
+        testRoot.left.left=new treeNode(3,"barry");
         testRoot.right.right=new treeNode(5,"haul");
         testRoot.left.left.right=new treeNode(6,"victor");
         testRoot.right.right.left=new treeNode(7,"arthor");
@@ -30,6 +30,19 @@ public class test {
         testTree.iterativePostorderIterate();
         System.out.println("#############################");
         System.out.println();
-        testTree.preorderSearch(2);
+        testTree.preorderSearch(3);
+        System.out.println("$$$$$$$$$$$$$$$$$$$$");
+        testTree.preorderIterate();
+        System.out.println("$$$$$$$$$$$$$$$$$$$$");
+        try{
+            testTree.delete(1);
+            System.out.println("successful node deletion");
+        }catch (illegalTargetException e){
+            System.out.println("target illegal, node deletion failed");
+        }
+        
+        System.out.println("$$$$$$$$$$$$$$$$$$$$");
+        testTree.preorderIterate();
+
     }
 }
