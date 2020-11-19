@@ -43,8 +43,7 @@ public class treeNode {
     }
     public void printCurrentNode(treeNode currentNode){
         currentNode.print();
-    }
-
+    } 
     public void deleteNode(Integer target) throws illegalTargetException{
         if(this.nodeId==target){
             throw new illegalTargetException();
