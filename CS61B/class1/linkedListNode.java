@@ -1,3 +1,5 @@
+package class1;
+
 public class linkedListNode {
     private int head;
     private linkedListNode tail;

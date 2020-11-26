@@ -1,7 +1,6 @@
 package heap;
 
 
-
 public class heap {
     private Double[] arrayHeap;
     public heap(Double[] array){
@@ -74,6 +73,20 @@ public class heap {
         }
     }
     
+
+    public void sort(boolean isReversed){
+        int lastElemenIndex=arrayHeap.length-1;
+        while(lastElemenIndex>0){
+            buildHeap(lastElemenIndex, !isReversed);
+            swap(0,lastElemenIndex);
+            lastElemenIndex--;
+        }
+    }
+
+    public Double[] getHeap(){
+        return this.arrayHeap;
+    }
+
     public void print(){
         for(Double d:arrayHeap){
             System.out.printf("%f\t",d);

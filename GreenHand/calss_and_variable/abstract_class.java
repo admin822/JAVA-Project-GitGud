@@ -1,4 +1,4 @@
-package calss_and_variable;
+package GreenHand.calss_and_variable;
 
 abstract class abstract_class {
     private boolean flag;

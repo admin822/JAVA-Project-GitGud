@@ -1,3 +1,5 @@
+package class1;
+
 public class testLinkedList {
     private static void sillyFunc(linkedListNode root){
         root=null;

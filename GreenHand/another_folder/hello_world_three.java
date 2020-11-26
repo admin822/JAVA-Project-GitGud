@@ -1,7 +1,7 @@
-package another_folder;
+package GreenHand.another_folder;
 
 
-import first_folder.hello_two;
+import GreenHand.first_folder.*;
 public class hello_world_three
 {
     public static void main(String[] args) {

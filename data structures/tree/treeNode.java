@@ -28,7 +28,8 @@ public class treeNode {
         this.right=null;
     }
     public void print(){
-        System.out.printf("Node: %d, Name: %s\n", this.nodeId,this.nodeName);
+        
+        System.out.printf("Node: %d, Name: %s, left height is %d, right height is %d, is it unbalanced: %b\n", this.nodeId,this.nodeName,getLeftHeight(),getRightHeight(),Math.abs(getLeftHeight()-getRightHeight())>1);
     }
     public String getDescription(){
         return String.format("Node: %d, Name: %s\n", this.nodeId,this.nodeName);
@@ -113,7 +114,36 @@ public class treeNode {
             }
         }
     }
-
+    public int getLeftHeight(){
+        if(isLeftEmpty()){
+            return 0;
+        }
+        else{
+            return left.getHeight();
+        }
+    }
+    public int getRightHeight(){
+        if(isRightEmpty()){
+            return 0;
+        }
+        else{
+            return right.getHeight();
+        }
+    }
+    public int getHeight(){
+        if(isLeftEmpty()&&isRightEmpty()){
+            return 1;
+        }
+        else if(isLeftEmpty()){
+            return right.getHeight()+1;
+        }
+        else if(isRightEmpty()){
+            return left.getHeight()+1;
+        }
+        else{
+            return Math.max(left.getHeight(), right.getHeight())+1;
+        }   
+    }
     public void iterativePostorderIterate(){
         Stack<treeNode> tempsave=new Stack<>();
         treeNode tempNode=this;
@@ -155,6 +185,28 @@ public class treeNode {
         if(!this.isRightEmpty()){
             this.right.infixIterate();
         }
+    }
+    public boolean checkIfUnbalanced(){
+        boolean result=false;
+        if(!this.isLeftEmpty()){
+            result=this.left.checkIfUnbalanced();
+        }
+        if(result){
+            return result;
+        }
+        else{
+            if(Math.abs(this.getLeftHeight()-this.getRightHeight())>1){
+                print();
+                return true;
+            }
+        }
+        if(!this.isRightEmpty()){
+            result=this.right.checkIfUnbalanced();
+        }
+        if(result){
+            return result;
+        }
+        return false;
     }
     public void  preorderIterate(){
         this.print();

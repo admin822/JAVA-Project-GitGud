@@ -1,4 +1,4 @@
-package first_folder;
+package GreenHand.first_folder;
 
 
 import java.io.*;
@@ -7,6 +7,23 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+
+
+
+
+
+abstract class abstract_parent_class
+{
+    public abstract void get_element(int a);
+}
+
+class concrete_child_class extends abstract_parent_class
+{
+    public void get_element(int a) // 必须有继承后的实现，不然会直接报错
+    {
+        System.out.println("test");
+    }
+}
 
 class parent_class
 {

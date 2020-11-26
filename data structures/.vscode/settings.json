@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\Barry Zhang\\source\\repos\\JAVA-Project-GitGud\\jars\\javatuples-1.2.jar"
+    ]
+}

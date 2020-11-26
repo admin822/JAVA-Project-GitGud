@@ -1,4 +1,5 @@
 
+package class1;
 
 public class linkedList {
     private linkedListNode Anchor;

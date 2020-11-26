@@ -1,3 +1,4 @@
+package class1;
 public class deleteAll {
     private boolean isIterative;
     public deleteAll(Boolean isIterative){

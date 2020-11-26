@@ -1,0 +1,5 @@
+How to pass function as a param
+
+what is callable, consumer, lambda function
+
+how to use interface

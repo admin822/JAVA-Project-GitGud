@@ -1,0 +1,2 @@
+this is meant for testing huffman compression, the current word count is :123123
+this file will include punctuations and english letters as well as numbers, for better testing result.

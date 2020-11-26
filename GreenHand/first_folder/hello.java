@@ -1,4 +1,6 @@
-package first_folder;
+package GreenHand.first_folder;
+
+
 public class hello
 {
     public static void main(String[] args)

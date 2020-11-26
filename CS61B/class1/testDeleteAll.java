@@ -1,3 +1,5 @@
+package class1;
+
 import java.util.*;
 public class testDeleteAll {
     public static void main(String[] args) {
