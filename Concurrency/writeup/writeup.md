@@ -52,4 +52,5 @@ Systems using an assembly line concurrency model are also sometimes called react
 
 ### 6. race conditions:  
 
-race conditions only refer to the condition that several threads **operate/ upgrade** the same resouce. If two threads are only **accessing or reading** the same 
+race conditions only refer to the condition that several threads **operate/ upgrade** the same resouce. If two threads are only **accessing or reading** the same.
+Check out the code in the /Threads/raceConditionDemo.java, you can see the two types of typical race condition.

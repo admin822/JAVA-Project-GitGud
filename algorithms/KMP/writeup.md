@@ -1,0 +1,2 @@
+1. if we call the text we need to search 'pat'(short for pattern) and the corpus 'txt' (short for text). Then KMP makes sure that we will not repeatedly examine the same character in 'txt'
+2. the dp array we will be using(see details in the code) is solely determined by pat.

@@ -38,4 +38,5 @@ public class huffmanTreeNode implements Comparable{
         huffmanTreeNode anotherNode=(huffmanTreeNode)o;
         return this.weight-anotherNode.getWeight();
     }
+    
 }

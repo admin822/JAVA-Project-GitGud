@@ -35,7 +35,38 @@ public class binarySearch {
             return recursiveSearch(originArray,start,middle-1,target);
         }
     }
-
+    public static ArrayList<Integer> iterativeResearch(double []originArray, double target){
+        ArrayList<Integer> result=new ArrayList<>();
+        int start=0;
+        int end=originArray.length-1;
+        int middle;
+        while(start<=end){
+            middle=(start+end)/2;
+            if(originArray[middle]==target){
+                result.add(middle);
+                for(int counter=middle-1;counter>=start;counter--){
+                    if(originArray[counter]!=target){
+                        break;
+                    }
+                    result.add(counter);
+                }
+                for(int counter=middle+1;counter<=end;counter++){
+                    if(originArray[counter]!=target){
+                        break;
+                    }
+                    result.add(counter);
+                }
+                break;
+            }
+            else if(originArray[middle]<target){
+                start=middle+1;
+            }
+            else{
+                end=middle-1;
+            }
+        }
+        return result;
+    }
     // unfinished
     private static ArrayList<Integer> insertionSearch(double []originArray, int start, int end, double target){
         ArrayList<Integer> result=new ArrayList<Integer>();

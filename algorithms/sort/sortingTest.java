@@ -33,17 +33,17 @@ public class sortingTest {
         long startTime;
         startTime=System.currentTimeMillis();
         for(int i=0;i<5000000;i++){
-            arrayForCandidate=createRandomDoubleArray(doubleRandomGenerator, 20);
+            arrayForCandidate=createRandomDoubleArray(doubleRandomGenerator, 5);
             arrayForStandard=Arrays.copyOf(arrayForCandidate, arrayForCandidate.length);
             arrayForBackup=Arrays.copyOf(arrayForCandidate, arrayForCandidate.length);
             Arrays.sort(arrayForStandard);
             // bubbleSort.sort(arrayForStandard, true); 
             
-            bubbleSort.sort(arrayForCandidate, false); //7574 secs
+            // bubbleSort.sort(arrayForCandidate, false); //7574 secs
             // naiveSelectionSort.sort(arrayForCandidate, false); //602 secs
             // naiveSelectionSort.sort(arrayForCandidate, false); //641secs
             // hillSort.sort(arrayForCandidate, false); //The whole process took 1146 secs
-            // quickSort.sort(arrayForCandidate, false); //The whole process took 6306 secs
+            quickSort.sort(arrayForCandidate, false); //The whole process took 6306 secs
             // mergeSort.sort(arrayForCandidate, false); //The whole process took 1070 secs
             if(Arrays.equals(arrayForCandidate, arrayForStandard)==false){
                 sortingUtil.printDoubleArray(arrayForCandidate);

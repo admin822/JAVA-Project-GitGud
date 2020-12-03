@@ -41,7 +41,8 @@ public class searchingTest {
             double target= generateRandomTarget(arrayForCandidate, randomDoubleGenerator, randomIntGenerator,2*SIZEOFARRAY);
             ArrayList<Integer> standardIndex=linearSearch.search(arrayForCandidate, target);
             // ArrayList<Integer> testIndex=binarySearch.search(arrayForCandidate, target, false); //5154(20), 8313(31)
-            ArrayList<Integer> testIndex=binarySearch.search(arrayForCandidate, target, true); //Finished in 5179(20), 8275(31)
+            // ArrayList<Integer> testIndex=binarySearch.search(arrayForCandidate, target, true); //Finished in 5179(20), 8275(31)
+            ArrayList<Integer> testIndex=binarySearch.iterativeResearch(arrayForCandidate, target); // Finished in 8149(31)
             if(util.twoArrayListEqual(standardIndex, testIndex)==false){
                 System.out.printf("test failed!\n");
                 util.printArrayList(standardIndex);
